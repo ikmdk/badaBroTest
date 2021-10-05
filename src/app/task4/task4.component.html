@@ -1,0 +1,38 @@
+<h2 style="text-align: center;color: #aa00f8;"><b>Members Report Excel</b></h2>
+<h3 style="text-align: center;color: #aa00f8;"><b>Profile Completion Report</b></h3>
+<div style="text-align:center">
+    <apx-chart
+      [series]="chartOptions.series"
+      [chart]="chartOptions.chart"
+      [xaxis]="chartOptions.xaxis"
+      [title]="chartOptions.title"
+    ></apx-chart>
+  </div>
+  <h3 style="text-align: center;color: #aa00f8;"><b>Gender Report</b></h3>
+  <p><b>Total number of Male : {{ male }} </b></p>
+  <p><b>Total number of Female : {{ female }} </b></p>
+  <p><b>Total number of Missing Data : {{ dataMissing }} </b></p>
+  <div id="pieschart">
+    <apx-chart
+      [series]="piechartOptions.series"
+      [chart]="piechartOptions.chart"
+      [labels]="piechartOptions.labels"
+      [responsive]="piechartOptions.responsive"
+    ></apx-chart>
+  </div>
+  <h3 style="text-align: center;color: #aa00f8;"><b>{{ title }}</b></h3>
+   
+  <p><b>Please zoom out to see markers plotted using lat/lon from  data</b></p>
+  <p><b>Due to performance reasons plotted 20markers instead of 10000+ markers from  data</b></p>
+
+<!-- this creates a google map on the page with the given lat/lng from -->
+<!-- the component as the initial center of the map: -->
+<agm-map [latitude]="lat1" [longitude]="lng2">
+  
+    <agm-marker  *ngFor="let data of pointerCount; let i = index" [latitude]="data.lat" [longitude]="data.long">
+    </agm-marker>
+ 
+</agm-map>
+<!--
+<div #map style="width:100%;height:450px"></div>
+-->

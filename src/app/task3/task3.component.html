@@ -1,0 +1,38 @@
+
+<h2 style="text-align: center;color: #aa00f8;">Collection Report</h2>
+<div style="float: right;margin:2em">
+  <div class="dropdown" >
+    <button class="dropbtn">Choose the staff</button>
+    <div class="dropdown-content">
+    <a *ngFor="let data of staff; let i = index" (click)="triggerChart(data)">{{ staff[i] }}</a>
+    </div>
+  </div>
+</div>
+
+  <div style="margin-top:3em;color: #aa00f8;">
+    <h4 style="text-align: center;"><b>Showing details for the staff : {{ choosedStaff }}</b></h4>
+     
+  </div>
+  <div >
+    <div id="chart" style="margin-top:7em">
+      <apx-chart
+        [series]="chartOptions.series"
+        [chart]="chartOptions.chart"
+        [dataLabels]="chartOptions.dataLabels"
+        [plotOptions]="chartOptions.plotOptions"
+        [xaxis]="chartOptions.xaxis"
+        [stroke]="chartOptions.stroke"
+        [fill]="chartOptions.fill"
+        [yaxis]="chartOptions.yaxis"
+        [title]="chartOptions.title"
+        [tooltip]="chartOptions.tooltip"
+        [legend]="chartOptions.legend"
+      ></apx-chart>
+    </div>
+  </div>
+  <div style="margin-top:2em">
+    <h4 style="text-align: center;color: #aa00f8;"><b>Instrution to use</b></h4>
+    <p><b>Choose an option from "Choose the staff" drop down to load report of particular user</b></p>
+     
+  </div>
+  
